@@ -1,0 +1,901 @@
+@charset "utf-8";
+
+// Customization
+
+// You can easily customize Bulma with your own variables.
+// Just uncomment the following block to see the result.
+
+/*
+// 1. Import the initial variables
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+
+// 2. Set your own initial variables
+// Update the blue shade, used for links
+$blue: #06bcef;
+// Add pink and its invert
+$pink: #ff8080;
+$pink-invert: #fff;
+// Update the sans-serif font family
+$family-sans-serif: "Helvetica", "Arial", sans-serif;
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
+$primary: $pink;
+$primary-invert: $pink-invert;
+
+// 4. Import the rest of Bulma
+*/
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+
+@import "./variables";
+
+@import "../node_modules/bulma/bulma";
+
+
+// general 
+.body {
+    background-color: $white;
+    max-width: 100vw;
+    margin: 0
+}
+
+.container-hero {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.navigationWrapper {
+	height: 820px;
+
+	@media (max-width: 1024px) {
+		height: 645px;
+	}
+	
+	@media (max-width: 767px) {
+		height: 369px;
+	}
+}
+
+.navigation {
+
+	@media (min-width: 768px) {
+	
+		a {
+			display: flex;
+			align-items: center;
+			margin: 0 4px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	@media (min-width: 1024px) {
+	
+		a {
+			margin: 0 10px;
+		}
+	}
+
+	@media (max-width: 767px) {
+		display: block;
+
+		a {
+			display: block;
+			width: 100%;
+			text-align: center;
+		}
+	}
+}
+
+.trakaWrapper {
+	text-align: right;
+	padding: 0 30px;
+}
+
+.subtitle {
+    font-family: $family-primary;
+    font-size: 60px;
+    color: $black-light;
+    line-height: 60px;
+    padding-left: 80px;
+    padding-top: 8px;
+
+	@media (max-width: 1024px) {
+		padding-left: 0;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 40px;
+		line-height: 40px;
+	}
+
+	span, strong, em {
+		display: inline;
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 18%;
+			right: -2%;
+			width: 28%;
+			height: 14%;
+			background: url(../_assets/images/dija-1.png) no-repeat center;
+			background-size: 100% auto;
+			font-weight: normal;
+			font-style: normal;
+		}
+	}
+
+	span, strong, em {
+		display: inline;
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 100% auto;
+			font-weight: normal;
+			font-style: normal;
+		}
+	}
+
+	span::after {
+		top: 18%;
+		right: -2%;
+		width: 28%;
+		height: 14%;
+		background-image: url(../_assets/images/dija-1.png);
+	}
+
+	strong::after {
+		top: 18%;
+		right: -2%;
+		width: 68%;
+		height: 14%;
+		background-image: url(../_assets/images/dija-3.png);
+	}
+
+	em::after {
+		top: 52%;
+		right: 24%;
+		width: 70.5%;
+		height: 8.2%;
+		background-image: url(../_assets/images/dija-2.png);
+	}
+}
+
+p {
+    font-family: $family-secundary;
+    font-size: $is-size-2;
+    color: $black-light;
+    font-weight: 400;
+    line-height: $line-height1;
+    padding-left: 80px;
+	
+	@media (max-width: 1024px) {
+		padding-left: 0;
+	}
+}
+
+p.prices, .impressum {
+    color: 
+    $grey-light;
+    padding-top: 50px;
+    padding-left: 80px;
+    font-size: $is-size-2;
+	
+	@media (max-width: 1024px) {
+		padding-left: 0;
+	}
+}
+
+a {
+	color: $black;
+	font-weight: bold;
+
+	&:hover {
+		color: $yellow;
+	}
+}
+
+h4 {
+    font-size: $is-size-3;
+    font-family: $family-primary;
+    color: $grey-light;
+}
+
+.footer {
+    background-color: $white;
+}
+
+.container-footer {
+	h4, a { padding: 20px; }
+	@media (min-width: 768px) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.column.changeOrderDesk {
+	@media (min-width: 768px) {
+		order: 1;
+	}
+}
+
+.bottomNav {
+	@media (max-width: 767px) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.columns {
+		display: flex;
+		justify-content: space-around;
+
+		@media (max-width: 767px) {
+			margin: 0;
+		}
+	}
+
+	.column {
+		flex: 0 1 auto;
+		display: flex;
+		align-items: center;
+
+		@media (max-width: 767px) {
+			flex-direction: column;
+		}
+	}
+
+	a[href="index.html"] {
+		margin: 0 6px;
+	}
+
+	a {
+		white-space: nowrap;
+	}
+}
+
+// Home page
+.homeBody {
+	.hero.is-primary {
+		background-color: $white;
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	.hero-body {
+		background: url(../_assets/images/city-center-one-header.jpg) no-repeat center;
+		background-size: cover;
+		background-color: $white;
+	}
+
+	@keyframes mingle {
+		0%   {transform: rotate(0deg);}
+		25%  {transform: rotate(15deg);}
+		50%  {transform: rotate(0deg);}
+		75%  {transform: rotate(-15deg);}
+		100% {transform: rotate(0deg);}
+	}
+
+	.container-index {
+		display: flex;
+		justify-content: space-evenly;
+		flex-wrap: nowrap;
+
+		.logo-index {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		.link-vizija, .link-slobodna, .link-forma, .link-opusteno, .link-snovi, .link-ljubav {
+			position: absolute;
+			left: 50%;
+			top: 60%;
+			transform: translate(-50%, -50%);
+			
+			img {
+				animation-name: mingle;
+				animation-duration: 2s;
+				animation-iteration-count: infinite;
+			}
+		}
+		
+		.link-vizija {
+			margin-left: -35vw;
+			width: 262px;
+			height: 69px;
+
+			@media (max-width: 767px) {
+				margin-left: -14vw;
+				margin-top: -21vh;
+			}
+
+			img { 
+				animation-delay: 1s;
+			}
+		}
+
+		.link-slobodna {
+			margin-left: -21vw;
+			margin-top: 14vh;
+			width: 341px;
+			height: 63px;
+
+			@media (max-width: 767px) {
+				margin-top: 21vh;
+				margin-left: -4vw;
+			}
+
+			img { 
+				animation-delay: 1.5s;
+			}
+		}
+
+		.link-forma {
+			margin-left: -5vw;
+			width: 175px;
+			height: 63px;
+
+			@media (max-width: 767px) {
+				margin-left: -23vw;
+				margin-top: -1vh;
+			}
+
+			img { 
+				animation-delay: 2s;
+			}
+		}
+
+		.link-opusteno {
+			margin-left: 12vw;
+			margin-top: 8vh;
+			width: 210px;
+			height: 67px;
+
+			@media (max-width: 767px) {
+				margin-top: 9vh;
+				margin-left: 20vw;
+			}
+
+			img { 
+				animation-delay: 2.5s;
+			}
+		}
+
+		.link-snovi {
+			margin-left: 28vw;
+			margin-top: 19vh;
+			width: 210px;
+			height: 67px;
+
+			@media (max-width: 767px) {
+				margin-top: 33vh;    
+				margin-left: 20vw;
+			}
+
+			img { 
+				animation-delay: 3s;
+			}
+		}
+
+		.link-ljubav {
+			margin-left: 41vw;
+			margin-top: 2vh;
+			width: 175px;
+			height: 66px;
+
+			@media (max-width: 767px) {
+				margin-top: -11vh;
+				margin-left: 27vw;			
+			}
+
+			img { 
+				animation-delay: 3.5s;
+			}
+		}
+	}
+
+	.zene {
+		position: absolute;
+		left: 50%;
+		top: 26vh;
+		width: 60%;
+		transform: translateX(-50%);
+
+		@media (max-width: 767px) {
+			width: 96%;
+			top: 22vh;
+		}
+	}
+
+	.bottom-logo {
+		.black {
+			font-family: 'Allison', cursive;
+			font-size: 200px;
+			color: $black;
+			position: relative;
+			left: 650px;
+			top: -315px;
+		}
+		.white {
+			font-family: 'Allison', cursive;
+			font-size: 200px;
+			color: $white;
+			position: relative;
+			left: 650px;
+			top: -650px;
+			z-index: -1;
+		}
+	}
+
+	.logo--city {
+		position: relative;
+		top: -20px;
+		left: 10px;
+	}
+}
+ 
+//Poslovna vizija
+.poslovnavizijaBody {	
+	.hero-body.poslovna {
+		background: url(../_assets/images/poslovna-vizija-header.jpg) no-repeat center;
+		background-size: cover;
+		background-color: $white;
+	}
+	.one {
+		.container-photo {
+			height: 1100px;
+			position: relative;
+	
+			@media (max-width: 1482px) {
+				padding-bottom: 82%;
+				height: 0;	
+			}
+	
+			@media (max-width: 964px) {
+				padding-bottom: 95%;	
+			}
+	
+			@media (max-width: 780px) {
+				padding-bottom: 100%;	
+			}
+	
+			@media (max-width: 450px) {
+				padding-bottom: 103%;	
+			}
+
+			.poslovna-photo1 {
+				top: 0;
+				right: 705px;
+				z-index: -1;
+		
+				@media (max-width: 1482px) {
+					left: 0;
+					right: auto;
+					width: 49%;
+				}
+			}
+				
+			.poslovna-photo2 {
+				right: 655px;
+				top: 375px;
+		
+				@media (max-width: 1482px) {
+					width: 32.5%;
+					right: 48%;
+					top: 34%;
+				}
+			}
+				
+			.poslovna-photo3 {
+				right: 0;
+				top: 58px;
+				z-index: -1;
+		
+				@media (max-width: 1482px) {
+					width: 49%;
+				}
+			} 
+		}
+	}
+	.poster {
+		@media (max-width: 767px) {
+			padding: 0 23px 0 10px;
+		}
+	}
+}
+
+//Sloboda izražavanja
+.slobodaBody {	
+	.hero-body.sloboda {
+		background: url(../_assets/images/sloboda-izrazavanja-header.jpg) no-repeat center;
+		background-size: cover;
+		background-color: $white;
+	}
+	.one {
+		.container-photo {
+			height: 1100px;
+			position: relative;
+	
+			@media (max-width: 1482px) {
+				padding-bottom: 82%;
+				height: 0;	
+			}
+	
+			@media (max-width: 964px) {
+				padding-bottom: 85%;	
+			}
+	
+			@media (max-width: 780px) {
+				padding-bottom: 90%;	
+			}
+	
+			@media (max-width: 450px) {
+				padding-bottom: 93%;	
+			}
+
+			.sloboda-photo1 {
+				top: 0;
+				left: 0;
+				z-index: -1;
+		
+				@media (max-width: 1482px) {
+					width: 44%;
+				}
+			}
+				
+			.sloboda-photo2 {
+				right: 412px;
+				top: 147px;
+		
+				@media (max-width: 1482px) {
+					top: 13%;
+					width: 43%;
+					right: 30%;
+				}
+			}
+				
+			.sloboda-photo3 {
+				right: 0;
+				top: 46px;
+				z-index: -1;
+		
+				@media (max-width: 1482px) {
+					width: 43%;
+					top: 4%;
+				}
+			} 
+		}
+	}
+}
+
+//Top forma
+.topformaBody {
+	.hero-body.forma {
+		background: url(../_assets/images/top-forma4.jpg) no-repeat center;
+		background-size: cover;
+		background-color: $white;
+	}
+
+	.one {
+		.container-photo {
+			height: 1227px;
+			position: relative;
+	
+			@media (max-width: 1482px) {
+				padding-bottom: 88%;
+				height: 0;	
+			}
+	
+			@media (max-width: 964px) {
+				padding-bottom: 90%;	
+			}
+	
+			@media (max-width: 780px) {
+				padding-bottom: 90%;	
+			}
+	
+			@media (max-width: 450px) {
+				padding-bottom: 93%;	
+			}
+
+			.topforma-photo1 {
+				top: 69px;
+				left: 0;
+				z-index: -1;
+		
+				@media (max-width: 1482px) {
+					width: 44%;
+					top: 6%;
+				}
+			}
+				
+			.topforma-photo2 {
+				left: 552px;
+				top: 0px;
+		
+				@media (max-width: 1482px) {
+					top: 0;
+					width: 43%;
+					left: 40%;
+				}
+			}
+				
+			.topforma-photo3 {
+				right: 0;
+				top: 274px;
+				z-index: -1;
+		
+				@media (max-width: 1482px) {
+					width: 43%;
+					top: 22%;
+				}
+			}
+		}
+	}
+}
+
+//Samo opušteno
+.opustenoBody {
+	.hero-body.opusteno {
+		background: url(../_assets/images/samo-opusteno-header.jpg) no-repeat center;
+		background-size: cover;
+		background-color: $white;
+	}
+	.one {
+		.container-photo {
+			height: 1227px;
+			position: relative;
+	
+			@media (max-width: 1482px) {
+				padding-bottom: 88%;
+				height: 0;	
+			}
+	
+			@media (max-width: 964px) {
+				padding-bottom: 90%;	
+			}
+	
+			@media (max-width: 780px) {
+				padding-bottom: 90%;	
+			}
+	
+			@media (max-width: 450px) {
+				padding-bottom: 93%;	
+			}
+
+			.opusteno-photo1 {
+				top: 0;
+				left: 0;
+				z-index: -1;
+		
+				@media (max-width: 1482px) {
+					width: 43%;
+				}
+			}
+				
+			.opusteno-photo2 {
+				left: 487px;
+				top: 218px;
+		
+				@media (max-width: 1482px) {
+					width: 43%;
+					top: 18%;
+    				left: 35%;
+				}
+				
+			}
+				
+			.opusteno-photo3 {
+				right: 0;
+				top: 155px;
+				z-index: -1;
+		
+				@media (max-width: 1482px) {
+					width: 43%;
+					top: 13%;
+				}
+			} 
+		}
+	}
+}
+
+//Ostvari snoveo
+.snoviBody {
+	.hero-body.snovi {
+		background: url(../_assets/images/ostvari-snove-header.jpg) no-repeat center;
+		background-size: cover;
+		background-color: $white;
+	}
+	.one {
+		.container-photo {
+			height: 1227px;
+			position: relative;
+	
+			@media (max-width: 1482px) {
+				padding-bottom: 88%;
+				height: 0;	
+			}
+	
+			@media (max-width: 964px) {
+				padding-bottom: 90%;	
+			}
+	
+			@media (max-width: 780px) {
+				padding-bottom: 90%;	
+			}
+	
+			@media (max-width: 450px) {
+				padding-bottom: 93%;	
+			}
+
+			.snovi-photo1 {
+				top: 0;
+				left: 0;
+				z-index: -1;
+		
+				@media (max-width: 1482px) {
+					width: 43%;
+				}
+			}
+				
+			.snovi-photo2 {
+				left: 487px;
+				top: 218px;
+		
+				@media (max-width: 1482px) {
+					width: 43%;
+					top: 18%;
+    				left: 35%;
+				}
+				
+			}
+				
+			.snovi-photo3 {
+				right: 0;
+				top: 0;
+				z-index: -1;
+		
+				@media (max-width: 1482px) {
+					width: 43%;
+				}
+			} 
+		}
+	}
+}
+
+//Ljubav
+.ljubavBody {
+	.hero-body.ljubav {
+		background: url(../_assets/images/ljubav-header.jpg) no-repeat center;
+		background-size: cover;
+		background-color: $white;
+	}
+	.one {
+		@media (min-width: 1588px) {
+			padding: 0 180px;
+		}
+
+		.container-photo {
+			height: 1152px;
+			position: relative;
+	
+			@media (max-width: 1482px) {
+				padding-bottom: 80%;
+				height: 0;	
+			}
+	
+			@media (max-width: 964px) {
+				padding-bottom: 80%;	
+			}
+	
+			@media (max-width: 780px) {
+				padding-bottom: 80%;	
+			}
+	
+			@media (max-width: 450px) {
+				padding-bottom: 83%;	
+			}
+
+			.ljubav-photo1 {
+				top: 73px;
+				left: 0;
+				z-index: -1;
+		
+				@media (max-width: 1482px) {
+					width: 43%;
+					top: 6%;
+				}
+			}
+				
+			.ljubav-photo2 {
+				left: 129px;
+				top: 447px;
+		
+				@media (max-width: 1482px) {
+					width: 65%;
+					top: 36%;
+    				left: 10%;
+				}
+				
+			}
+				
+			.ljubav-photo3 {
+				right: 0;
+				top: 0;
+				z-index: -1;
+		
+				@media (max-width: 1482px) {
+					width: 43%;
+				}
+			} 
+		}
+	}
+}
+
+.zelim {
+	display: flex;
+	justify-content: flex-end;
+	position: relative;
+	top: -20px;
+}
+
+.one {
+	max-width: 1740px;
+	padding: 0 50px;
+	margin: 90px auto 0;
+	
+	@media (max-width: 1482px) {
+		margin: 4% auto 0;
+	}
+
+	@media (max-width: 1024px) {
+		padding: 0 20px;
+	}
+
+	.container-photo img {
+		position: absolute;
+	}
+}
+
+.two,
+.three,
+.four {
+	img {
+		width: 100%;
+
+		@media (max-width: 767px) {
+			max-width: calc(100% + 48px);
+			margin-left: -24px;
+			width: calc(100% + 48px);
+		}
+	}
+}
+
+.ligatura {
+	position: absolute;
+	top: 40px;
+	left: -120px;
+	z-index: -1;
+	width: 50% !important;
+}
+
+
