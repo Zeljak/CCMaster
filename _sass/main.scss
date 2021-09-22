@@ -898,4 +898,11 @@ h4 {
 	width: 50% !important;
 }
 
+.column.bottomNav {
+	
+	@media (min-width: 767px) {
+		display: flex;
+		flex-shrink: 1;
+	}
+}
 
